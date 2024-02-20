@@ -9,6 +9,7 @@
     "static": "npx http-server dist/ng11 -p 4200",
     "rebuild": "npm run clean; npm run build; npm run static",
     "wipe": "rm -rf dist node_modules package-lock.json",
+    "fix": "PATCHED_CONTENT=$(jq '.name=\"@angular/core\"' node_modules/@angular/core/package.json); echo -e \"${PATCHED_CONTENT}\" > node_modules/@angular/core/package.json",
     "cleanroom": "rm -rf dist; ng build && npx http-server dist/ng11 -p 4200",
     "test": "ng test",
     "lint": "ng lint",
