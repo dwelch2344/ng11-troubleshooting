@@ -8,8 +8,8 @@
     "clean": "rm -rf dist",
     "static": "npx http-server dist/ng11 -p 4200",
     "rebuild": "npm run clean; npm run build; npm run static",
-    "wipe": "rm -rf dist node_modules package-lock.json",
-    "fix": "PATCHED_CONTENT=$(jq '.name=\"@angular/core\"' node_modules/@angular/core/package.json); echo -e \"${PATCHED_CONTENT}\" > node_modules/@angular/core/package.json",
+    "wipe": "rm -rf dist node_modules/@angular package-lock.json; npm i; chmod -R 775 node_modules/@angular/cli/bin/*",
+    "fix": "PATCHED_CONTENT=$(jq '.name=\"@angular/core\"' node_modules/@angular/core/package.json); echo $PATCHED_CONTENT | jq -r . > node_modules/@angular/core/package.json",
     "cleanroom": "rm -rf dist; ng build && npx http-server dist/ng11 -p 4200",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,7 +20,7 @@
     "@angular/animations": "11.2.14",
     "@angular/common": "11.2.14",
     "@angular/compiler": "11.2.14",
-    "@neverendingsupport/angular": "11.2.14-trial-core",
+    "@angular/core": "npm:@neverendingsupport/angular@11.2.14-trial-core",
     "@angular/forms": "11.2.14",
     "@angular/platform-browser": "11.2.14",
     "@angular/platform-browser-dynamic": "11.2.14",
@@ -55,6 +55,6 @@
   },
   "volta": {
     "node": "16.20.2",
-    "npm": "10.1.0"
+    "npm": "9.9.2"
   }
 }
