@@ -7,6 +7,7 @@
     "build": "ng build",
     "clean": "rm -rf dist",
     "static": "npx http-server dist/ng11 -p 4200",
+    "repro": "rm -rf node_modules package-lock.json dist; npm i; npm run build",
     "rebuild": "npm run clean; npm run build; npm run static",
     "wipe": "rm -rf dist node_modules/@angular package-lock.json; npm i; chmod -R 775 node_modules/@angular/cli/bin/*",
     "fix": "PATCHED_CONTENT=$(jq '.name=\"@angular/core\"' node_modules/@angular/core/package.json); echo $PATCHED_CONTENT | jq -r . > node_modules/@angular/core/package.json",
