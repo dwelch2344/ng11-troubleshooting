@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "chmod -R 775 node_modules/@angular/cli/bin/*; ng build",
     "clean": "rm -rf dist",
     "static": "npx http-server dist/ng11 -p 4200",
     "repro": "rm -rf node_modules package-lock.json dist; npm i; npm run build",
